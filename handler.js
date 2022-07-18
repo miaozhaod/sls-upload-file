@@ -1,0 +1,15 @@
+module.exports.uploadFile = async event => {
+  return {
+    statusCode: 200,
+    body: JSON.stringify(
+      {
+        message: "Go Serverless v1.0! Your function executed successfully!",
+        data: {
+          input: event,
+        },
+      },
+      null,
+      2
+    ),
+  };
+};
