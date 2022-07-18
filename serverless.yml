@@ -8,20 +8,27 @@ provider:
   apiGateway:
     binaryMediaTypes:
       - "multipart/form-data"
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - s3:*
+      Resource: "*"
 
 functions:
   uploadFile:
     handler: handler.uploadFile
     events:
       - http:
-          path: /file/upload
+          path: /file-upload
           method: post
           cors: true
+    environment:
+      BUCKET: file-upload-bucket-comosus
 
 resources:
   Resources:
     FileUploadBucket:
       Type: AWS::S3::Bucket
       Properties:
-        BucketName: file-upload-bucket
+        BucketName: file-upload-bucket-comosus
         AccessControl: PublicRead
