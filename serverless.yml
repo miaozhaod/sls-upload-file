@@ -8,11 +8,13 @@ provider:
   apiGateway:
     binaryMediaTypes:
       - "multipart/form-data"
-  iamRoleStatements:
-    - Effect: Allow
-      Action:
-        - s3:*
-      Resource: "*"
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - s3:*
+          Resource: "*"
 
 functions:
   uploadFile:
