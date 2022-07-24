@@ -17,11 +17,20 @@ provider:
           Resource: "*"
 
 functions:
-  uploadFile:
-    handler: handler.uploadFile
+  uploadFileJson:
+    handler: uploadFileJson.handler
     events:
       - http:
-          path: /file-upload
+          path: /file-upload-json
+          method: post
+          cors: true
+    environment:
+      BUCKET: file-upload-bucket-comosus
+  uploadFileMultipart:
+    handler: uploadFileMultipart.handler
+    events:
+      - http:
+          path: /file-upload-multipart
           method: post
           cors: true
     environment:
