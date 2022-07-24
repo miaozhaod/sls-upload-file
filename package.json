@@ -18,7 +18,9 @@
   "homepage": "https://github.com/miaozhaod/sls-upload-file#readme",
   "dependencies": {
     "aws-sdk": "^2.1176.0",
+    "file-type": "^17.1.2",
     "lambda-multipart-parser": "^1.0.1",
-    "parse-multipart": "^1.0.4"
+    "parse-multipart": "^1.0.4",
+    "sharp": "^0.30.7"
   }
 }
