@@ -1,16 +1,15 @@
 const AWS = require("aws-sdk");
-const parseMultipart = require("parse-multipart");
 const parser = require("lambda-multipart-parser");
 
 const BUCKET = process.env.BUCKET;
 const s3 = new AWS.S3();
 
-module.exports.uploadFile = async event => {
+module.exports.handler = async event => {
   console.log("lambda uploadFile event string ... ", JSON.stringify(event));
   const result = await parser.parse(event);
   console.log("result ... ", result);
   const { filename, content } = result.files[0];
-
+  
   try {
     await s3
       .putObject({
