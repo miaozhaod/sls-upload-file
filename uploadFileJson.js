@@ -41,7 +41,7 @@ module.exports.handler = async event => {
   try {
     const { file, user_id, mime } = requestBody;
     let buffer = Buffer.from(file, "base64");
-    const fileName = `${user_id}.${mime}`;
+    const fileName = `${user_id}.jpg`;
     const bucketName = process.env.BUCKET;
 
     const imageMimes = ["image/jpeg", "image/png", "image/jpg"];
